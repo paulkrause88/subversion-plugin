@@ -64,6 +64,13 @@ THE SOFTWARE.
             <version>${maven-hpi-plugin.version}</version>
         </plugin>
         <plugin>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>1.6</source>
+                <target>1.6</target>
+            </configuration>
+        </plugin>
+        <plugin>
         <artifactId>maven-enforcer-plugin</artifactId>
         <version>1.2</version>
         <executions>
