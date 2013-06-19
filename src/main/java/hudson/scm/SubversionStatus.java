@@ -55,9 +55,11 @@ public class SubversionStatus extends AbstractModelObject implements Unprotected
         return "subversion";
     }
 
-    public SubversionRepositoryStatus getDynamic(String uuid) {
-        if(UUID_PATTERN.matcher(uuid).matches())
-            return new SubversionRepositoryStatus(UUID.fromString(uuid));
+    public AbstractModelObject getDynamic(String id) {
+        if (UUID_PATTERN.matcher(id).matches())
+            return new SubversionRepositoryStatus(UUID.fromString(id));
+        // see if id matches a known vendor
+        if ("cloudforge".equals(id)) return new SubversionCloudForgeStatus();
         return null;
     }
 
